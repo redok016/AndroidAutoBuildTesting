@@ -8,7 +8,7 @@
 <property name="userpw" value="n309312r" /> 
 <property name="folder" value="/Users/artist/.jenkins/jobs/AndroidCustomView/workspace/AndroidCustomView/bin" />
 <!-- <property name="folder" value="/Users/artist/Documents/workspace/2014AppDevTeam/AndroidAutoBuild/AndroidAutoBuildTesting/AndroidCustomView/bin" /> --> 
-<property name="file" value="AndroidCustomView-release.apk" /> 
+<property name="file" value="AndroidCustomView.apk" /> 
 <tstamp prefix="build-info">
 	<format property="current-date" pattern="d-MMMM-yyyy" locale="en" />
 	<format property="current-time" pattern="hh:mm:ss a z" locale="en" />
