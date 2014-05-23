@@ -9,7 +9,11 @@
 <property name="folder" value="/Users/artist/.jenkins/jobs/AndroidCustomView/workspace/AndroidCustomView/bin" />
 <!-- <property name="folder" value="/Users/artist/Documents/workspace/2014AppDevTeam/AndroidAutoBuild/AndroidAutoBuildTesting/AndroidCustomView/bin" /> --> 
 <property name="file" value="AndroidCustomView-release.apk" /> 
-  
+<tstamp prefix="build-info">
+	<format property="current-date" pattern="d-MMMM-yyyy" locale="en" />
+	<format property="current-time" pattern="hh:mm:ss a z" locale="en" />
+	<format property="year-month-day" pattern="yyyy-MM-dd" locale="en" />
+</tstamp>
  <!--실행시에 출력되는 echo--> 
 <!-- <echo message="target ${server}/${userid}/******/${file}" /> --> 
   
