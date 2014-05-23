@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<project name="ftpUpload" default="all" basedir="."> 
+<!--FTP 정보에 대한 설정--> 
+<property name="server" value="soicalimpact.com" /> 
+<property name="port" value="21" /> 
+<property name="remotedir" value="/appdev/" /> 
+<property name="userid" value="secondimpact" /> 
+<property name="userpw" value="n309312r" /> 
+<property name="folder" value="/Users/artist/.jenkins/jobs/AndroidCustomView/workspace/AndroidCustomView/bin" />
+<!-- <property name="folder" value="/Users/artist/Documents/workspace/2014AppDevTeam/AndroidAutoBuild/AndroidAutoBuildTesting/AndroidCustomView/bin" /> --> 
+<property name="file" value="AndroidCustomView-release.apk" /> 
+  
+ <!--실행시에 출력되는 echo--> 
+<!-- <echo message="target ${server}/${userid}/******/${file}" /> --> 
+  
+<!--FTP Upload-->    
+ <target name="upload"> 
+  <ftp server="${server}" 
+    port="${port}" 
+    remotedir="${remotedir}" 
+    userid="${userid}" 
+    password="${userpw}" 
+    binary="yes" 
+    passive="yes"
+    verbose="yes"> 
+   <fileset dir="${folder}"> 
+       <include name="${file}"/> 
+   </fileset> 
+  </ftp> 
+</target>  
+
+<!--FTP Download-->  
+<target name="download"> 
+<ftp server="${server}" port="${port}" passive="yes" 
+      remotedir="${remotedir}" 
+      action="get" 
+      userid="${userid}" password="${userpw}" 
+      depends="yes" verbose="yes" > 
+     <fileset dir="${folder}"> 
+      <include name="${file}"/> 
+      <include name="${file}"/> 
+     </fileset> 
+</ftp> 
+</target> 
+
+  
+<!--FTP Delete-->    
+<target name="delete"> 
+  <!-- <echo meesage="서버의 파일을 삭제 합니다."/> --> 
+  <ftp server="${server}" 
+    port="${port}" 
+    remotedir="${remotedir}" 
+    userid="${userid}" 
+    password="${userpw}" 
+    action="del"> 
+   <fileset> 
+    <include name="${file}"/> 
+   </fileset> 
+  </ftp> 
+</target> 
+  
+<!--FTP Delete and FTP Upload--> 
+<target name="all"> 
+  <!--  <antcall target="delete" /> --> 
+  <antcall target="upload" /> 
+</target> 
+</project> 
