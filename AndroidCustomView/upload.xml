@@ -15,6 +15,7 @@
   
 <!--FTP Upload-->    
  <target name="upload"> 
+  <echo>"uploading.."</echo>
   <ftp server="${server}" 
     port="${port}" 
     remotedir="${remotedir}" 
@@ -46,7 +47,7 @@
   
 <!--FTP Delete-->    
 <target name="delete"> 
-  <!-- <echo meesage="서버의 파일을 삭제 합니다."/> --> 
+  <echo>"remove exist file.."</echo> 
   <ftp server="${server}" 
     port="${port}" 
     remotedir="${remotedir}" 
